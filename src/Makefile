@@ -19,6 +19,9 @@ PKG_FILE ?= sys_pkg.sv
 # RTL source files (project.v holds tt_um_systolic_mm)
 RTL_SRCS ?= pe.v systolic_array.v project.v
 
+# Coverage exclusion file made in Verdi (used only if the file exists)
+EXCL_FILE ?= systolic_excl.el
+
 # Runtime controls
 TESTNAME  ?= reset_during_compute_test
 VERBOSITY ?= UVM_HIGH
@@ -187,7 +190,9 @@ summary:
 
 report:
 	@echo "Generating coverage report from $(COV_DIR)..."
-	$(URG) -dir $(COV_DIR) -report $(OUT_DIR)/urgReport
+	$(URG) -dir $(COV_DIR) -report $(OUT_DIR)/urgReport \
+	  $(if $(wildcard $(EXCL_FILE)),-elfile $(EXCL_FILE))
+	@if [ -f $(EXCL_FILE) ]; then echo "Exclusion file applied: $(EXCL_FILE)"; else echo "No exclusion file ($(EXCL_FILE)) - report is unfiltered"; fi
 	@echo "Coverage report: $(OUT_DIR)/urgReport/dashboard.html"
 
 clean:
