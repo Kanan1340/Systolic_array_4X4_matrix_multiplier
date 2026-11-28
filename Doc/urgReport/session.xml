@@ -1,8 +1,8 @@
-<session version="1.1" release="Q-2020.03-SP2-8" timestp="2026-11-24 05:44:03 GMT">
+<session version="1.1" release="Q-2020.03-SP2-8" timestp="2026-11-28 09:31:17 GMT">
   <info>
-    <attr name="datetime" value="Tue Nov 24 11:14:18 2026
+    <attr name="datetime" value="Sat Nov 28 15:53:35 2026
 "/>
-    <attr name="command" value="urg -dir work/systolic.vdb -report work/urgReport"/>
+    <attr name="command" value="urg -dir work/systolic.vdb -report work/urgReport -elfile systolic_excl.el"/>
     <attr name="top_instance" value="sys_tb_top"/>
   </info>
   <hvp>
@@ -18,11 +18,11 @@
   </hvp>
   <old_coverage>
   <scope type="top" name="top">
-    <metric name="Line" value="130/131" />
+    <metric name="Line" value="132/132" />
     <metric name="Cond" value="36/36" />
-    <metric name="Toggle" value="1303/1446" />
+    <metric name="Toggle" value="1298/1434" />
     <metric name="FSM" value="17/17" />
-    <metric name="Branch" value="77/78" />
+    <metric name="Branch" value="58/58" />
     <metric name="Assert" value="6/6" />
     <metric name="Group" value="100%" />
   </scope>
